@@ -128,9 +128,20 @@ func healthHandler(w http.ResponseWriter, r *http.Request) {
 			"message": "API Running",
 		})
 	}
+// localhost:8080
+func app(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("Content-Type", "application/json")
+		json.NewEncoder(w).Encode(map[string]string{
+			"learn":  "Code With Umam - Belajar Membuat API Dengan Golang",
+			"task": "Kasir API - Categories",
+			"completed": "Yes",
+			"completed_at": "Kamis, 3 Sya'ban 1447 H / 22 Januari 2026 M At 09:47:13",
+		})
+	}
 
 func main() {
 	// Router
+	http.HandleFunc("/", app)
 	http.HandleFunc("/health", healthHandler)
 	http.HandleFunc("/categories", categoriesHandler)
 	http.HandleFunc("/categories/", categoryByIDHandler)
@@ -143,3 +154,4 @@ func main() {
 		fmt.Printf("Error starting server: %v\n", err)
 	}
 }
+
