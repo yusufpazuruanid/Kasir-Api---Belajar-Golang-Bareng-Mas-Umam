@@ -1,0 +1,32 @@
+### APP
+GET http://localhost:8080/
+
+### Health Check
+GET http://localhost:8080/health
+
+### Get All Categories
+GET http://localhost:8080/categories
+
+### Create Category
+POST http://localhost:8080/categories
+Content-Type: application/json
+
+{
+    "name": "Mesin",
+    "description": "Mesin untuk memproduksi barang"
+}
+
+### Get Category by ID
+GET http://localhost:8080/categories/1
+
+### Update Category
+PUT http://localhost:8080/categories/1
+Content-Type: application/json
+
+{
+    "name": "Elektronik & Gadget",
+    "description": "Perangkat elektronik, gadget, dan aksesoris terbaru"
+}
+
+### Delete Category
+DELETE http://localhost:8080/categories/4
